@@ -30,8 +30,6 @@ app.get('/api/topheadlines', async (req, res) => {
     const response = await axios.get(requests.topHeadlines, {
       params: { apiKey, ...req.query },
     });
-    res.status(response.status);
-    res.set(response.headers);
     res.send(response.data);
   } catch (e) {
     res.status(500).send('There was an error fetching Top Headlines');
@@ -43,8 +41,6 @@ app.get('/api/everything', async (req, res) => {
     const response = await axios.get(requests.everything, {
       params: { apiKey, ...req.query },
     });
-    res.status(response.status);
-    res.set(response.headers);
     res.send(response.data);
   } catch (e) {
     res.status(500).send('There was an error fetching Everything');
