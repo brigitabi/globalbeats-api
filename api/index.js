@@ -25,6 +25,21 @@ app.get('/api', (req, res) => {
   res.send('App is running!');
 });
 
+app.get('/api/test', (req, res) => {
+  res.send('App is running!');
+});
+
+app.get('/api/bri', async (req, res) => {
+  try {
+    const response = await axios.get(requests.topHeadlines, {
+      params: { apiKey, ...req.query },
+    });
+    res.send(response.data);
+  } catch (e) {
+    res.status(500).send('There was an error fetching Top Headlines');
+  }
+});
+
 app.get('/api/topheadlines', async (req, res) => {
   try {
     const response = await axios.get(requests.topHeadlines, {
@@ -47,6 +62,6 @@ app.get('/api/everything', async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
-  console.log('App running on port 4000');
+app.listen(process.env.PORT || 4000, () => {
+  console.log('App running on port ' + process.env.PORT);
 });
