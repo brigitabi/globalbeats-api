@@ -15,7 +15,7 @@ const requests = {
 
 app.use(
   cors({
-    origin: 'https://global-beats.vercel.app/', // Replace with the allowed origin(s)
+    origin: 'https://global-beats.vercel.app', // Remove the trailing slash
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
   }),
