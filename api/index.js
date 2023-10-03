@@ -25,19 +25,8 @@ app.get('/api', (req, res) => {
   res.send('App is running!');
 });
 
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.send('App is running!');
-});
-
-app.get('/api/bri', async (req, res) => {
-  try {
-    const response = await axios.get(requests.topHeadlines, {
-      params: { apiKey, ...req.query },
-    });
-    res.send(response.data);
-  } catch (e) {
-    res.status(500).send('There was an error fetching Top Headlines');
-  }
 });
 
 app.get('/api/topheadlines', async (req, res) => {
