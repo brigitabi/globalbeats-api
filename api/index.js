@@ -15,11 +15,11 @@ const requests = {
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('App is running!');
 });
 
-app.get('/topheadlines', async (req, res) => {
+app.get('/api/topheadlines', async (req, res) => {
   try {
     const response = await axios.get(requests.topHeadlines, {
       params: { apiKey, ...req.query },
@@ -32,7 +32,7 @@ app.get('/topheadlines', async (req, res) => {
   }
 });
 
-app.get('/everything', async (req, res) => {
+app.get('/api/everything', async (req, res) => {
   try {
     const response = await axios.get(requests.everything, {
       params: { apiKey, ...req.query },
