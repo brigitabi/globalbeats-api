@@ -6,7 +6,7 @@ require('dotenv');
 
 const app = express();
 
-app.get('/lu', (req, res) => {
+app.get('/api/lu', (req, res) => {
   res.send('BRI is running!');
 });
 
