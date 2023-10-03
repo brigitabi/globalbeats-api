@@ -13,7 +13,13 @@ const requests = {
   everything: `https://newsapi.org/v2/everything`,
 };
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://global-beats.vercel.app/', // Replace with the allowed origin(s)
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    optionsSuccessStatus: 204,
+  }),
+);
 
 app.get('/api', (req, res) => {
   res.send('App is running!');
