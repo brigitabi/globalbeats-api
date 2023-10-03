@@ -15,6 +15,10 @@ const requests = {
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('App is running!');
+});
+
 app.get('/topheadlines', async (req, res) => {
   try {
     const response = await axios.get(requests.topHeadlines, {
